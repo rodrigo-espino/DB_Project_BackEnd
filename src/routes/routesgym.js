@@ -1,5 +1,5 @@
 import {Router} from 'express';
-
+import { getUsers, getUser, createUser } from '../controllers/gymcontro';
 
 const router = Router();
 
@@ -60,9 +60,9 @@ router.delete('/api/assigned/:id')
 router.put('/api/assigned/:id')
 
 //Users
-router.get('/api/users')
-router.get('/api/users/:id')
-router.post('/api/users')
+router.get('/api/users', getUsers)
+router.get('/api/users/:id', getUser)
+router.post('/api/users', createUser)
 router.delete('/api/users/:id')
 router.put('/api/users/:id')
 
