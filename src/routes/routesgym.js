@@ -1,70 +1,78 @@
 import {Router} from 'express';
-import { getUsers, getUser, createUser } from '../controllers/gymcontro';
+import { getUsers, getUser, createUser, updateUser, deleteUser } from '../controllers/users';
+import { getInstructors, getInstructor, createInstructor, updateInstructor, deleteInstructor } from '../controllers/instructors';
+import { getMember, getMembers, createMember, updateMember, deleteMember } from '../controllers/members';
+import { getSquash, getSquashes, createSquash, updateSquash, deleteSquash } from '../controllers/squash';
+import { getRoom, getRooms, createRoom, updateRoom, deleteRoom } from '../controllers/rooms';
+import { getDevice, getDevices, updateDevice, createDevice, deleteDevice } from '../controllers/devices';
+import { getReservation, getReservations, updateReservation, createReservation, deleteReservation } from '../controllers/reservation';
+import { getAssigned, getAssigneds, createAssigned, updateAssigned, deleteAssigned } from '../controllers/assigned';
+import { getAttend, getAttendes, createAttend, updateAttend, deleteAttend } from '../controllers/attends';
 
 const router = Router();
 
 //Rooms
-router.get('/api/rooms')
-router.get('/api/rooms/:id')
-router.post('/api/rooms')
-router.delete('/api/rooms/:id')
-router.put('/api/rooms/:id')
+router.get('/api/rooms', getRooms);
+router.get('/api/rooms/:id', getRoom);
+router.post('/api/rooms', createRoom);
+router.delete('/api/rooms/:id', deleteRoom);
+router.put('/api/rooms/:id', updateRoom);
 
 //Devices
-router.get('/api/devices')
-router.get('/api/devices/:id')
-router.post('/api/devices')
-router.delete('/api/devices/:id')
-router.put('/api/devices/:id')
+router.get('/api/devices', getDevices);
+router.get('/api/devices/:id', getDevice);
+router.post('/api/devices', createDevice);
+router.delete('/api/devices/:id', deleteDevice);
+router.put('/api/devices/:id', updateDevice);
 
 //Instructors
-router.get('/api/instructors')
-router.get('/api/instructors/:id')
-router.post('/api/instructors')
-router.delete('/api/instructors/:id')
-router.put('/api/instructors/:id')
+router.get('/api/instructors', getInstructors)
+router.get('/api/instructors/:id', getInstructor)
+router.post('/api/instructors', createInstructor)
+router.delete('/api/instructors/:id', deleteInstructor)
+router.put('/api/instructors/:id', updateInstructor)
 
 //Members
-router.get('/api/members')
-router.get('/api/members/:id')
-router.post('/api/members')
-router.delete('/api/members/:id')
-router.put('/api/members/:id')
+router.get('/api/members', getMembers)
+router.get('/api/members/:id', getMember)
+router.post('/api/members', createMember)
+router.delete('/api/members/:id', deleteMember)
+router.put('/api/members/:id', updateMember)
 
 //Reservations
-router.get('/api/reservations')
-router.get('/api/reservations/:id')
-router.post('/api/reservations')
-router.delete('/api/reservations/:id')
-router.put('/api/reservations/:id')
+router.get('/api/reservations', getReservations)
+router.get('/api/reservations/:id', getReservation)
+router.post('/api/reservations', createReservation)
+router.delete('/api/reservations/:id', deleteReservation)
+router.put('/api/reservations/:id', updateReservation)
 
 //Squassh_Courts
-router.get('/api/squash')
-router.get('/api/squash/:id')
-router.post('/api/squash')
-router.delete('/api/squash/:id')
-router.put('/api/squash/:id')
+router.get('/api/squash', getSquashes)
+router.get('/api/squash/:id', getSquash)
+router.post('/api/squash', createSquash)
+router.delete('/api/squash/:id', deleteSquash)
+router.put('/api/squash/:id', updateSquash)
 
 //Attends
-router.get('/api/attends')
-router.get('/api/attends/:id')
-router.post('/api/attends')
-router.delete('/api/attends/:id')
-router.put('/api/attends/:id')
+router.get('/api/attends', getAttendes)
+router.get('/api/attends/:id', getAttend)
+router.post('/api/attends', createAttend)
+router.delete('/api/attends/:id', deleteAttend)
+router.put('/api/attends/:id', updateAttend)
 
 //Assigned
-router.get('/api/assigned')
-router.get('/api/assigned/:id')
-router.post('/api/assigned')
-router.delete('/api/assigned/:id')
-router.put('/api/assigned/:id')
+router.get('/api/assigned', getAssigneds)
+router.get('/api/assigned/:id', getAssigned)
+router.post('/api/assigned', createAssigned)
+router.delete('/api/assigned/:id', deleteAssigned)
+router.put('/api/assigned/:id', updateAssigned)
 
 //Users
 router.get('/api/users', getUsers)
 router.get('/api/users/:id', getUser)
 router.post('/api/users', createUser)
-router.delete('/api/users/:id')
-router.put('/api/users/:id')
+router.delete('/api/users/:id', deleteUser)
+router.put('/api/users/:id', updateUser)
 
 
 
