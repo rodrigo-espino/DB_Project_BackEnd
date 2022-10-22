@@ -1,9 +1,9 @@
 import {connect} from '../database';
 
-export const getUsers = async(req, res) => {
+export const getClasses = async(req, res) => {
     const connection = await connect();
     try{
-        const [rows] =  await connection.query('SELECT * FROM USERS');
+        const [rows] =  await connection.query('SELECT * FROM CLASSES');
         res.json(rows);
     }
     catch(e){
@@ -11,10 +11,10 @@ export const getUsers = async(req, res) => {
     }
 }
 
-export const getUser = async(req, res) => {
+export const getClass = async(req, res) => {
     const connection = await connect();
     try{
-        const [rows] =  await connection.query('SELECT * FROM USERS WHERE ID = ?', [req.params.id]);
+        const [rows] =  await connection.query('SELECT * FROM CLASSES WHERE ID = ?', [req.params.id]);
         res.json(rows);
     }
     catch(e){
@@ -22,13 +22,13 @@ export const getUser = async(req, res) => {
     }
 }
 
-export const createUser = async(req, res) => {
+export const createClass = async(req, res) => {
     const connection = await connect();
     try{
-        const [results] =  await connection.query('INSERT INTO USERS (name, user, pass) VALUES (?, ?, ?)', [
-        req.body.name,
-        req.body.user,
-        req.body.pass
+        const [results] =  await connection.query('INSERT INTO CLASSES (scheduleC, description, inst_id) VALUES (?, ?, ?)', [
+        req.body.sche,
+        req.body.dec,
+        req.body.inst
         ]);
         res.json({
             id: results.insertId,
@@ -41,10 +41,10 @@ export const createUser = async(req, res) => {
     
 }
 
-export const updateUser = async(req, res) => {
+export const updateClass = async(req, res) => {
     const connection = await connect();
     try{
-            await connection.query('UPDATE USERS SET ? WHERE ID = ?', [
+            await connection.query('UPDATE CLASSES SET ? WHERE ID = ?', [
             req.body, req.params.id]);
             res.sendStatus(204)
     }
@@ -54,10 +54,10 @@ export const updateUser = async(req, res) => {
     
 }
 
-export const deleteUser = async(req, res) => {
+export const deleteClass = async(req, res) => {
     const connection = await connect();
     try{
-        const [results] =  await connection.query('DELETE FROM USERS WHERE ID = ?', [req.params.id]);
+        const [results] =  await connection.query('DELETE FROM CLASSES WHERE ID = ?', [req.params.id]);
         res.sendStatus(204)
     }
     catch(e){

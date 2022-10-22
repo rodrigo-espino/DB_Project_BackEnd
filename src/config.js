@@ -12,4 +12,4 @@ export const config = {
     user: 'root',
     password: 'toor',
     database: 'DB_PROJECT'
-    }
+}

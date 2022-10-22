@@ -8,10 +8,14 @@ import { getDevice, getDevices, updateDevice, createDevice, deleteDevice } from 
 import { getReservation, getReservations, updateReservation, createReservation, deleteReservation } from '../controllers/reservation';
 import { getAssigned, getAssigneds, createAssigned, updateAssigned, deleteAssigned } from '../controllers/assigned';
 import { getAttend, getAttendes, createAttend, updateAttend, deleteAttend } from '../controllers/attends';
+import { getClass, getClasses, deleteClass, updateClass, createClass } from '../controllers/classes';
+import { Login } from '../controllers/login';
 
 const router = Router();
 
 //Rooms
+
+    
 router.get('/api/rooms', getRooms);
 router.get('/api/rooms/:id', getRoom);
 router.post('/api/rooms', createRoom);
@@ -74,7 +78,15 @@ router.post('/api/users', createUser)
 router.delete('/api/users/:id', deleteUser)
 router.put('/api/users/:id', updateUser)
 
+//Classes
+router.get('/api/classes', getClasses)
+router.get('/api/classes/:id', getClass)
+router.post('/api/classes', createClass)
+router.delete('/api/classes/:id', deleteClass)
+router.put('/api/classes/:id', updateClass)
 
+//Login
+router.get('/api/login/:user/:pass', Login)
 
 
 
