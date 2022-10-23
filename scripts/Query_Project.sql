@@ -5,7 +5,7 @@ CREATE TABLE ROOMS (
 id int primary key auto_increment, 
 meters double, 
 location varchar(50),
-typeof varchar(50)
+typeofR varchar(50)
 )
 
 CREATE TABLE DEVICES(

@@ -25,11 +25,11 @@ export const getRoom = async (req, res) => {
 export const createRoom = async (req, res) => {
     const connection = await connect()
     try{
-        const [results] = await connection.query('INSERT INTO ROOMS (meters, location, typeof) VALUES (?, ?, ?)', 
+        const [results] = await connection.query('INSERT INTO ROOMS (meters, location, typeofR) VALUES (?, ?, ?)', 
     [
         req.body.meters, 
         req.body.location, 
-        req.body.typeof])
+        req.body.typeofR])
     res.json({
         id: results.insertId,
         ...req.body
