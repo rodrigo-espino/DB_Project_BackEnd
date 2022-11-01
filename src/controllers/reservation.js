@@ -25,7 +25,7 @@ export const getReservation = async(req, res) => {
 export const createReservation = async(req, res) => {
     const connection = await connect();
     try{
-        const [results] =  await connection.query('INSERT INTO RESERVATION (member_id, squash_court, Rdate, Rtime) VALUES (?, ?, ?, ?, ?)', [
+        const [results] =  await connection.query('INSERT INTO RESERVATION (member_id, squash_court, Rdate, Rtime) VALUES (?, ?, ?, ?)', [
             req.body.member_id,
             req.body.squash_court,
             req.body.Rdate,

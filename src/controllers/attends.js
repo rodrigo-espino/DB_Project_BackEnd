@@ -25,12 +25,11 @@ export const getAttend = async(req, res) => {
 export const createAttend = async(req, res) => {
     const connection = await connect();
     try{
-        const [results] =  await connection.query('INSERT INTO ATTENDS (class_id, memb_id) VALUES (?, ?)', [
+        await connection.query('INSERT INTO ATTENDS (class_id, memb_id) VALUES (?, ?)', [
             req.body.class_id,
             req.body.memb_id
         ]);
             res.json({
-                id: results.insertId,
                 ...req.body
             })
     }
@@ -38,25 +37,12 @@ export const createAttend = async(req, res) => {
         res.json(e)
     }
 }
-
-export const updateAttend = async(req, res) => {
-    const connection = await connect();
-    try{
-        const [results] =  await connection.query('UPDATE ATTENDS SET ? WHERE ID = ?', [
-        req.body, req.params.id]);
-        console.log("Rs")    
-        console.log(results);
-        res.sendStatus(204)
-    }
-    catch(e){
-        res.json(e)
-    }
-}
-
 export const deleteAttend = async(req, res) => {
     const connection = await connect();
     try{
-        const [results] =  await connection.query('DELETE FROM ATTENDS WHERE ID = ?', [req.params.id]);
+        const [results] =  await connection.query('DELETE FROM ATTENDS WHERE memb_id = ? and class_id = ?', [
+            req.params.id,
+            req.params.idc]);
         res.sendStatus(204)
     }
     catch(e){

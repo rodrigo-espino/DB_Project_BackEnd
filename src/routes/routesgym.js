@@ -7,15 +7,15 @@ import { getRoom, getRooms, createRoom, updateRoom, deleteRoom } from '../contro
 import { getDevice, getDevices, updateDevice, createDevice, deleteDevice } from '../controllers/devices';
 import { getReservation, getReservations, updateReservation, createReservation, deleteReservation } from '../controllers/reservation';
 import { getAssigned, getAssigneds, createAssigned, updateAssigned, deleteAssigned } from '../controllers/assigned';
-import { getAttend, getAttendes, createAttend, updateAttend, deleteAttend } from '../controllers/attends';
+import { getAttend, getAttendes, createAttend, deleteAttend } from '../controllers/attends';
 import { getClass, getClasses, deleteClass, updateClass, createClass } from '../controllers/classes';
 import { Login } from '../controllers/login';
+import { membClass, memNotSelectedClasses } from '../controllers/consults';
 
 const router = Router();
 
 //Rooms
 
-    
 router.get('/api/rooms', getRooms);
 router.get('/api/rooms/:id', getRoom);
 router.post('/api/rooms', createRoom);
@@ -31,6 +31,7 @@ router.put('/api/devices/:id', updateDevice);
 
 //Instructors
 router.get('/api/instructors', getInstructors)
+router.get('/api/instructors/:name', getInstbyName)
 router.get('/api/instructors/:id', getInstructor)
 router.post('/api/instructors', createInstructor)
 router.delete('/api/instructors/:id', deleteInstructor)
@@ -61,8 +62,7 @@ router.put('/api/squash/:id', updateSquash)
 router.get('/api/attends', getAttendes)
 router.get('/api/attends/:id', getAttend)
 router.post('/api/attends', createAttend)
-router.delete('/api/attends/:id', deleteAttend)
-router.put('/api/attends/:id', updateAttend)
+router.delete('/api/attends/:id/:idc', deleteAttend)
 
 //Assigned
 router.get('/api/assigned', getAssigneds)
@@ -87,6 +87,10 @@ router.put('/api/classes/:id', updateClass)
 
 //Login
 router.get('/api/login/:user/:pass', Login)
+
+//Consults
+router.get('/api/consults/memclass/:id', membClass)
+router.get('/api/consults/membnotc/:id', memNotSelectedClasses)
 
 
 
