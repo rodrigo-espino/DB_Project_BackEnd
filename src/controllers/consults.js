@@ -26,4 +26,3 @@ export const memNotSelectedClasses = async (req, res) => {
       res.json(e);
     }
   }
-
