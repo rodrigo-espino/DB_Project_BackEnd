@@ -31,7 +31,6 @@ router.put('/api/devices/:id', updateDevice);
 
 //Instructors
 router.get('/api/instructors', getInstructors)
-router.get('/api/instructors/:name', getInstbyName)
 router.get('/api/instructors/:id', getInstructor)
 router.post('/api/instructors', createInstructor)
 router.delete('/api/instructors/:id', deleteInstructor)

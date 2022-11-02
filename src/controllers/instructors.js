@@ -64,13 +64,3 @@ export const deleteInstructor = async(req, res) => {
         res.json(e)
     }
 }
-export const getInstbyName = async(req, res) => {
-    const connection = await connect();
-    try{
-        const [rows] =  await connection.query('SELECT * FROM INSTRUCTORS WHERE name = ?', [req.params.name]);
-        res.json(rows);
-    }
-    catch(e){
-        res.json(e)
-    }
-}
