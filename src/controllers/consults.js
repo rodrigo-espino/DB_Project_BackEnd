@@ -26,3 +26,34 @@ export const memNotSelectedClasses = async (req, res) => {
       res.json(e);
     }
   }
+
+export const class_room = async (req, res) => {
+  const con = await connect();
+  try{
+    const [row] = await con.query(
+      "SELECT * FROM ASSIGNED A JOIN CLASSES C ON A.class_id = C.id JOIN ROOMS R ON R.id = A.room_id WHERE C.id = ?" ,[
+        req.params.id
+      ]
+    )
+    res.json(row);
+  }
+  catch(e){
+    res.json(e);
+  }
+}
+
+export const class_notInRoom = async (req, res) => {
+  const con = await connect();
+  try{
+    const [row] = await con.query(
+      "SELECT * FROM ROOMS WHERE id NOT IN (SELECT room_id FROM ASSIGNED WHERE class_id = ?)",[
+        req.params.id
+      ]
+      )
+      res.json(row);
+  }
+  catch(e){
+    res.json(e);
+  }
+
+}

@@ -39,24 +39,13 @@ export const createAssigned = async(req, res) => {
     }
 }
 
-export const updateAssigned = async(req, res) => {
-    const connection = await connect();
-    try{
-        const [results] =  await connection.query('UPDATE ASSIGNED SET ? WHERE ID = ?', [
-        req.body, req.params.id]);
-        console.log("Rs")    
-        console.log(results);
-        res.sendStatus(204)
-    }
-    catch(e){
-        res.json(e)
-    }
-}
 
 export const deleteAssigned = async(req, res) => {
     const connection = await connect();
     try{
-        const [results] =  await connection.query('DELETE FROM ASSIGNED WHERE ID = ?', [req.params.id]);
+        const [results] =  await connection.query('DELETE FROM ASSIGNED WHERE class_id = ? AND room_id', [
+            req.params.idclass, 
+            req.params.idroom]);
         res.sendStatus(204)
     }
     catch(e){

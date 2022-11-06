@@ -10,7 +10,7 @@ import { getAssigned, getAssigneds, createAssigned, updateAssigned, deleteAssign
 import { getAttend, getAttendes, createAttend, deleteAttend } from '../controllers/attends';
 import { getClass, getClasses, deleteClass, updateClass, createClass } from '../controllers/classes';
 import { Login } from '../controllers/login';
-import { membClass, memNotSelectedClasses } from '../controllers/consults';
+import { membClass, memNotSelectedClasses, class_room, class_notInRoom } from '../controllers/consults';
 
 const router = Router();
 
@@ -67,8 +67,7 @@ router.delete('/api/attends/:id/:idc', deleteAttend)
 router.get('/api/assigned', getAssigneds)
 router.get('/api/assigned/:id', getAssigned)
 router.post('/api/assigned', createAssigned)
-router.delete('/api/assigned/:id', deleteAssigned)
-router.put('/api/assigned/:id', updateAssigned)
+router.delete('/api/assigned/:idroom/:idclass', deleteAssigned)
 
 //Users
 router.get('/api/users', getUsers)
@@ -90,7 +89,8 @@ router.get('/api/login/:user/:pass', Login)
 //Consults
 router.get('/api/consults/memclass/:id', membClass)
 router.get('/api/consults/membnotc/:id', memNotSelectedClasses)
-
+router.get('/api/consults/classroom/:id', class_room)
+router.get('/api/consults/classnotroom/:id', class_notInRoom)
 
 
 export default router;
