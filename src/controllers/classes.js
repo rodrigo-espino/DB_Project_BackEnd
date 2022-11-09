@@ -3,7 +3,7 @@ import {connect} from '../database';
 export const getClasses = async(req, res) => {
     const connection = await connect();
     try{
-        const [rows] =  await connection.query('SELECT * FROM CLASSES');
+        const [rows] =  await connection.query('SELECT c.description, c.scheduleC, c.id, i.name as "inst_id" FROM CLASSES c INNER JOIN INSTRUCTORS i ON c.inst_id = i.sno');
         res.json(rows);
     }
     catch(e){
