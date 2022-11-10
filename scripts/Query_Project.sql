@@ -18,14 +18,14 @@ room_id int
 CREATE TABLE INSTRUCTORS(
 SNO int primary key auto_increment,
 name varchar(50),
-phone varchar(50),
+phone_i varchar(50),
 experience varchar(50),
 degree varchar(50)
 )
 
 CREATE TABLE MEMBERS(
 id int primary key auto_increment, 
-name varchar(50),
+name_m varchar(50),
 address varchar(50),
 phone varchar(50),
 profession varchar(50), 
