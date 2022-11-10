@@ -83,7 +83,7 @@ export const MembyInst = async (req, res) => {
   const con = await connect();
   try {
     const [row] = await con.query(
-      "SELECT * FROM members m JOIN attends a ON a.memb_id = m.id JOIN classes c ON a.class_id = c.id JOIN instructors i ON i.sno = c.inst_id GROUP BY i.sno "
+      "SELECT * FROM members m JOIN attends a ON a.memb_id = m.id JOIN classes c ON a.class_id = c.id JOIN instructors i ON i.sno = c.inst_id"
     );
     res.json(row);
   } catch (e) {

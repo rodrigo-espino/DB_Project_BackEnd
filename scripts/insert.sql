@@ -134,7 +134,7 @@ SELECT * FROM classes c INNER JOIN instructors i ON i.sno = c.inst_id GROUP BY i
 SELECT * FROM members m JOIN attends a ON m.id = a.memb_id JOIN classes c ON c.id = a.class_id GROUP BY m.id
 
 -- List of members by instructor
-SELECT * FROM members m JOIN attends a ON a.memb_id = m.id JOIN classes c ON a.class_id = c.id JOIN instructors i ON i.sno = c.inst_id GROUP BY i.sno 
+SELECT * FROM members m JOIN attends a ON a.memb_id = m.id JOIN classes c ON a.class_id = c.id JOIN instructors i ON i.sno = c.inst_id
 
 -- List of all the equipment
 SELECT * FROM devices
