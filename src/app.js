@@ -6,7 +6,6 @@ import {options} from './swaggerOptions';
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 
-
 const specs = swaggerJSDoc(options);
 
 

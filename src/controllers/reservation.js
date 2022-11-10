@@ -4,7 +4,7 @@ export const getReservations = async(req, res) => {
     const connection = await connect();
     try{
         const [rows] =  
-        await connection.query('SELECT s.location as "squash_court", m.name as "member_id", r.Rdate, r.Rtime, r.id FROM RESERVATION r JOIN SQUASH_COURT s ON s.id = r.squash_court JOIN MEMBERS m ON r.member_id = m.id');
+        await connection.query('SELECT s.location as "squash_court", m.name_m as "member_id", r.Rdate, r.Rtime, r.id FROM RESERVATION r JOIN SQUASH_COURT s ON s.id = r.squash_court JOIN MEMBERS m ON r.member_id = m.id');
         res.json(rows);
     }
     catch(e){

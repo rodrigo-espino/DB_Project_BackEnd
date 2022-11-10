@@ -26,7 +26,7 @@ export const getInstructor = async(req, res) => {
 export const createInstructor = async(req, res) => {
     const connection = await connect();
     try{
-        const [results] =  await connection.query("INSERT INTO INSTRUCTORS (name, phone, experience, degree) VALUES (?, ?, ?, ?)", [
+        const [results] =  await connection.query("INSERT INTO INSTRUCTORS (name, phone_i, experience, degree) VALUES (?, ?, ?, ?)", [
             req.body.name,
             req.body.phone,
             req.body.experience,

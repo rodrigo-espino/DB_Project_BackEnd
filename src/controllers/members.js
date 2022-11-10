@@ -25,7 +25,7 @@ export const getMember = async (req, res) => {
 export const createMember = async (req, res) => {
     const connection = await connect()
    try{
-    const [results] = await connection.query('INSERT INTO MEMBERS (name, address, phone, profession, bank_det) VALUES (?, ?, ?, ?, ?)', 
+    const [results] = await connection.query('INSERT INTO MEMBERS (name_m, address, phone, profession, bank_det) VALUES (?, ?, ?, ?, ?)', 
     [
         req.body.name, 
         req.body.address, 

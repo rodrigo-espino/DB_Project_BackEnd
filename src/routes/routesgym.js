@@ -10,7 +10,7 @@ import { getAssigned, getAssigneds, createAssigned, updateAssigned, deleteAssign
 import { getAttend, getAttendes, createAttend, deleteAttend } from '../controllers/attends';
 import { getClass, getClasses, deleteClass, updateClass, createClass } from '../controllers/classes';
 import { Login } from '../controllers/login';
-import { membClass, memNotSelectedClasses, class_room, class_notInRoom } from '../controllers/consults';
+import { membClass, memNotSelectedClasses, class_room, class_notInRoom, classbyinst, MembnClass, Devices, MembyInst, DevicesbyRoom } from '../controllers/consults';
 
 const router = Router();
 
@@ -92,5 +92,10 @@ router.get('/api/consults/membnotc/:id', memNotSelectedClasses)
 router.get('/api/consults/classroom/:id', class_room)
 router.get('/api/consults/classnotroom/:id', class_notInRoom)
 
+router.get('/api/consults/classbyinst', classbyinst)
+router.get('/api/consults/membnclass', MembnClass)
+router.get('/api/consults/membyinst', MembyInst)
+router.get('/api/consults/devices', Devices)
+router.get('/api/consults/devicesbyroom', DevicesbyRoom)
 
 export default router;
