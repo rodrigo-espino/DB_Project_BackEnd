@@ -65,5 +65,5 @@ export const deleteReservation = async(req, res) => {
     catch(e){
         res.json(e)
     }
-    
+
 }
